@@ -1,34 +1,8 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Checkbox } from "@/components/ui/checkbox";
-import { useToast } from "@/hooks/use-toast";
+import { ExternalLink } from "lucide-react";
 
 const PetitionSection = () => {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    postcode: "",
-    updates: false
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Thank you for signing!",
-      description: "Your voice matters. We'll keep you updated on our progress.",
-    });
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      postcode: "",
-      updates: false
-    });
-  };
+  const changeOrgUrl = "https://www.change.org/your-petition-url-here"; // Replace with your actual Change.org petition URL
 
   return (
     <section id="petition" className="py-20 bg-gradient-to-b from-muted to-background">
@@ -51,80 +25,54 @@ const PetitionSection = () => {
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <Label htmlFor="firstName">First Name *</Label>
-                <Input
-                  id="firstName"
-                  required
-                  value={formData.firstName}
-                  onChange={(e) => setFormData({...formData, firstName: e.target.value})}
-                  className="bg-background"
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="lastName">Last Name *</Label>
-                <Input
-                  id="lastName"
-                  required
-                  value={formData.lastName}
-                  onChange={(e) => setFormData({...formData, lastName: e.target.value})}
-                  className="bg-background"
-                />
-              </div>
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="email">Email Address *</Label>
-              <Input
-                id="email"
-                type="email"
-                required
-                value={formData.email}
-                onChange={(e) => setFormData({...formData, email: e.target.value})}
-                className="bg-background"
-              />
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="postcode">UK Postcode *</Label>
-              <Input
-                id="postcode"
-                required
-                placeholder="SW1A 1AA"
-                value={formData.postcode}
-                onChange={(e) => setFormData({...formData, postcode: e.target.value})}
-                className="bg-background"
-              />
-            </div>
-
-            <div className="flex items-start space-x-2">
-              <Checkbox
-                id="updates"
-                checked={formData.updates}
-                onCheckedChange={(checked) => setFormData({...formData, updates: checked as boolean})}
-              />
-              <label
-                htmlFor="updates"
-                className="text-sm text-muted-foreground leading-relaxed cursor-pointer"
-              >
-                I'd like to receive updates about this campaign and related accessibility initiatives
-              </label>
-            </div>
+          <div className="text-center space-y-6">
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              We've partnered with Change.org to collect signatures and amplify our message. 
+              Your signature will help us reach decision-makers and create real change in UK nightlife.
+            </p>
 
             <Button
-              type="submit"
               size="lg"
-              className="w-full bg-accent hover:bg-accent/90 text-accent-foreground text-lg py-6"
+              asChild
+              className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-8 py-6 w-full sm:w-auto"
             >
-              Sign the Petition
+              <a 
+                href={changeOrgUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2"
+              >
+                Sign on Change.org
+                <ExternalLink className="w-5 h-5" />
+              </a>
             </Button>
 
-            <p className="text-sm text-muted-foreground text-center">
-              By signing, you agree to our privacy policy. We'll never share your data.
+            <p className="text-sm text-muted-foreground">
+              You'll be redirected to Change.org to complete your signature
             </p>
-          </form>
+          </div>
+
+          <div className="mt-8 pt-8 border-t border-border">
+            <h4 className="text-xl font-bold mb-4 text-card-foreground">Why Sign?</h4>
+            <ul className="space-y-3 text-muted-foreground">
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold mt-1">•</span>
+                <span>Help protect thousands of people from seizures and health issues</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold mt-1">•</span>
+                <span>Make UK nightlife truly inclusive and accessible</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold mt-1">•</span>
+                <span>Send a powerful message to venue owners and operators</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold mt-1">•</span>
+                <span>Join a growing movement for safer nightlife</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>

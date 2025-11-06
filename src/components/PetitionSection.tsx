@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
 
 const PetitionSection = () => {
-  const changeOrgUrl = "https://www.change.org/your-petition-url-here"; // Replace with your actual Change.org petition URL
+  const changeOrgUrl = "https://www.change.org/the-influx";
 
   return (
     <section id="petition" className="py-20 bg-gradient-to-b from-muted to-background">

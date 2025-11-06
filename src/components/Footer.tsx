@@ -17,8 +17,8 @@ const Footer = () => {
             <h3 className="text-xl font-bold mb-4 text-card-foreground">Contact</h3>
             <div className="flex items-center gap-2 text-muted-foreground">
               <Mail className="w-5 h-5" />
-              <a href="mailto:info@strobefreenights.uk" className="hover:text-primary transition-colors">
-                info@strobefreenights.uk
+              <a href="mailto:info@theinflux.co.uk" className="hover:text-primary transition-colors">
+                info@theinflux.co.uk
               </a>
             </div>
           </div>

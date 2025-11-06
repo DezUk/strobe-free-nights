@@ -37,7 +37,7 @@ const Footer = () => {
             Made with <Heart className="w-4 h-4 text-accent fill-accent" /> for a more inclusive UK nightlife
           </p>
           <p className="text-sm text-muted-foreground mt-2">
-            © 2025 Strobe-Free Nights UK. All rights reserved.
+            © 2025 THE INFLUX. All rights reserved.
           </p>
         </div>
       </div>
